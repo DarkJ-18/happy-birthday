@@ -1,19 +1,41 @@
-/* customizable snowflake styling */
+:root {
+    --bg-1: #ffecd2;
+    --bg-2: #fcb69f;
+    --accent: #e85d75;
+    --text-1: #5a1f2f;
+    --text-2: #763046;
+}
+
+[data-theme="azul"] {
+    --bg-1: #dbeafe;
+    --bg-2: #a5b4fc;
+    --accent: #1d4ed8;
+    --text-1: #102a63;
+    --text-2: #1e3a8a;
+}
+
+[data-theme="sol"] {
+    --bg-1: #fff9c4;
+    --bg-2: #ffd166;
+    --accent: #c2410c;
+    --text-1: #7c2d12;
+    --text-2: #9a3412;
+}
+
 .loader button {
-    width: 50%;
-    height: 100px;
+    width: min(82vw, 460px);
+    height: 88px;
     position: fixed;
     left: 50%;
     top: 45%;
-    transform: translateY(-50%);
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     background: center no-repeat #fff;
     z-index: 9999999999999999999999;
-    font-size: 50px;
+    font-size: clamp(24px, 4vw, 46px);
     outline: none;
     box-sizing: border-box;
     border: none;
-    border-radius: .3em;
+    border-radius: 18px;
     text-transform: uppercase;
     box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(110, 80, 20, .4),
         inset 0 -2px 5px 1px rgba(139, 66, 8, 1),
@@ -26,6 +48,7 @@
     transition: all .2s ease-in-out;
     background-size: 100% 100%;
     background-position: center;
+    font-family: 'Baloo 2', cursive;
 }
 
 .golden-btn:focus,
@@ -51,7 +74,9 @@
     width: 100%;
     height: 100%;
     z-index: 999;
-    background: url(img/back.png) center no-repeat #000;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), transparent 45%),
+        radial-gradient(circle at 80% 10%, rgba(255, 230, 150, 0.35), transparent 40%),
+        url(img/back.png) center/cover no-repeat #2b0918;
 }
 
 .song {
@@ -59,7 +84,13 @@
 }
 
 body {
-    background-color: #FFDAB9;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(-35deg, var(--bg-1), var(--bg-2), #ffe5ec, #ffd6a5);
+    background-size: 300% 300%;
+    animation: bgFlow 12s ease infinite;
 }
 
 img {
@@ -69,61 +100,146 @@ img {
 .balloon-border {
     position: fixed;
     top: 100%;
-    opacity: 0.5;
+    opacity: 0.75;
     z-index: 99999999;
 }
 
 .area {
     text-align: center;
-    font-size: 70px;
-    color: #C4515C;
-    letter-spacing: -7px;
-    font-weight: 700;
-    text-transform: uppercase;
-    animation: spin 2s ease-out infinite;
-    text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
-}
-
-#nae {
-    text-transform: capitalize;
+    font-size: clamp(46px, 9vw, 98px);
+    color: var(--accent);
+    letter-spacing: -2px;
+    font-weight: 800;
+    text-transform: none;
+    animation: spin 2.6s ease-in-out infinite;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 28px rgba(255, 255, 255, 0.75);
+    font-family: 'Baloo 2', cursive;
 }
 
 #confetti {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 
 @keyframes spin {
     0% {
-        transform: rotateZ(0);
+        transform: rotateZ(0deg) scale(1);
     }
 
     25% {
-        transform: rotateZ(10deg);
+        transform: rotateZ(6deg) scale(1.03);
     }
 
     50% {
-        transform: rotateZ(0deg);
+        transform: rotateZ(0deg) scale(1);
     }
 
     75% {
-        transform: rotateZ(-10deg);
+        transform: rotateZ(-6deg) scale(1.03);
+    }
+
+    100% {
+        transform: rotateZ(0deg) scale(1);
     }
 }
 
 .type-wrap {
-    font-size: 25px;
-    color: #C4515C;
+    font-size: clamp(24px, 3.2vw, 40px);
+    color: var(--text-1);
+    font-weight: 700;
+    line-height: 1.35;
+    margin-top: 8px;
+    font-family: 'Baloo 2', cursive;
+}
 
+#typed {
+    background: rgba(255, 255, 255, 0.56);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    padding: 8px 18px;
+    display: inline-block;
+    backdrop-filter: blur(8px);
 }
 
 .cake {
-    transform: translateY(-50%);
-    transform: translateX(-50%);
-    left: 50%;
-    position: absolute;
-    padding-top: 250px;
+    position: relative;
+    transform: none;
+    left: auto;
+    padding-top: 20px;
+    max-width: 280px;
+    margin: 8px auto 0;
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+.dedicatoria {
+    margin: 16px 0 0;
+    font-size: clamp(18px, 2.5vw, 28px);
+    color: var(--text-2);
+    font-weight: 700;
+    font-family: 'Baloo 2', cursive;
+}
+
+.fecha {
+    margin: 6px 0 0;
+    font-size: clamp(14px, 1.8vw, 18px);
+    color: rgba(62, 23, 35, 0.8);
+    letter-spacing: 0.7px;
+}
+
+.main {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 120px;
+    z-index: 1;
+}
+
+.main .container {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes cakeFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bgFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .cake {
+        position: relative;
+        transform: none;
+        left: auto;
+        padding-top: 20px;
+        max-width: 210px;
+        margin: 0 auto;
+        animation: none;
+    }
+
+    .balloon-border {
+        opacity: 0.55;
+    }
 }

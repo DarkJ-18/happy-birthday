@@ -4,12 +4,29 @@ var sf = new Snowflakes({
 });
 var url_string = window.location.href; //window.location.href
 var url = new URL(url_string);
-var c = url.searchParams.get("name");
-console.log(c);
-if (c != null) {
-    document.getElementById("name").innerHTML = c;
-    document.getElementById("nae").innerHTML = c;
+var nameParam = url.searchParams.get("name") || url.searchParams.get("nombre");
+var fromParam = url.searchParams.get("from");
+var themeParam = (url.searchParams.get("theme") || "").toLowerCase();
+var fallbackName = document.getElementById("name").textContent.trim();
+var personName = nameParam && nameParam.trim().length > 0
+    ? nameParam.trim()
+    : (fallbackName.length > 0 ? fallbackName : "Cumpleañera");
+var fromName = fromParam && fromParam.trim().length > 0 ? fromParam.trim() : "alguien que te quiere mucho";
+
+document.getElementById("name").textContent = personName;
+document.getElementById("dedicatoria").textContent = "Con cariño, " + fromName + ".";
+
+if (themeParam === "azul" || themeParam === "sol") {
+    document.documentElement.setAttribute("data-theme", themeParam);
 }
+
+var frases = [
+    "Feliz cumpleaños, " + personName + "",
+    "Que hoy te regale momentos inolvidables",
+    "Risas, abrazos y mucha buena vibra",
+    "Que este año te sorprenda bonito"
+];
+
 $(".main").fadeOut(1);
 $('#play').click(function () {
     $(".loader").fadeOut(1500);
@@ -23,9 +40,10 @@ $('#play').click(function () {
 
 });
 var typed = new Typed("#typed", {
-    stringsElement: '#typed-strings',
+    strings: frases,
     typeSpeed: 30,
     backSpeed: 10,
+    backDelay: 1200,
     loop: true
 });
 var retina = window.devicePixelRatio,
