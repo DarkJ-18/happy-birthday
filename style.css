@@ -244,3 +244,61 @@ img {
         opacity: 0.55;
     }
 }
+
+@media (max-width: 480px) {
+    .area {
+        font-size: clamp(32px, 8vw, 60px);
+        letter-spacing: -1px;
+        margin-bottom: 12px;
+    }
+
+    .type-wrap {
+        font-size: clamp(16px, 2.8vw, 28px);
+        margin-top: 4px;
+        padding: 0 8px;
+    }
+
+    #typed {
+        padding: 6px 14px;
+        border-radius: 12px;
+        font-size: 0.95em;
+        max-width: 90vw;
+        word-wrap: break-word;
+    }
+
+    .dedicatoria {
+        font-size: clamp(14px, 2vw, 20px);
+        margin: 12px 0 0;
+        padding: 0 12px;
+        line-height: 1.4;
+    }
+
+    .fecha {
+        font-size: clamp(11px, 1.5vw, 14px);
+        margin: 4px 0 0;
+    }
+
+    .main {
+        padding-bottom: 60px;
+    }
+
+    .main .container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .cake {
+        max-width: 160px;
+        padding-top: 12px;
+    }
+
+    .loader button {
+        height: 72px;
+        font-size: clamp(18px, 3.5vw, 32px);
+        width: min(90vw, 340px);
+    }
+
+    .balloon-border {
+        opacity: 0.45;
+    }
+}
