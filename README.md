@@ -14,16 +14,17 @@ Ejemplo:
 
 <a href="https://programmergaurav.github.io/happy-birthday/?name=Camilo&from=Tu+familia&theme=noche" target="blank">Abrir ejemplo personalizado</a>
 
-## Como ejecutar el proyecto
+## Ejecutar en local
 
-Este proyecto no necesita instalacion porque solo usa HTML, CSS y JavaScript.
+Este proyecto es estatico, asi que puedes abrirlo de estas dos formas:
 
-Opciones recomendadas:
+1. Doble clic sobre `index.html` para abrirlo en el navegador.
+2. Si prefieres servirlo desde localhost, abre una terminal dentro de la carpeta del proyecto y ejecuta:
 
-1. Abre `index.html` directamente en tu navegador.
-2. Desde VS Code, instala y usa la extension `Live Server`, luego haz clic derecho sobre `index.html` y elige `Open with Live Server`.
-3. Si quieres probar la URL con parametros, usa algo como:
+	```bash
+	python -m http.server 8000
+	```
 
-`index.html?name=Camilo&from=Tu+familia&theme=noche`
+	Luego entra en `http://localhost:8000`.
 
-Si abres la version `Happy Birthday.html`, el funcionamiento es el mismo, pero la version principal del proyecto es `index.html`.
+Si usas VS Code, la extension Live Server tambien funciona bien para verlo en local.
