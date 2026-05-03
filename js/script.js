@@ -10,21 +10,21 @@ var themeParam = (url.searchParams.get("theme") || "").toLowerCase();
 var fallbackName = document.getElementById("name").textContent.trim();
 var personName = nameParam && nameParam.trim().length > 0
     ? nameParam.trim()
-    : (fallbackName.length > 0 ? fallbackName : "Cumpleañera");
-var fromName = fromParam && fromParam.trim().length > 0 ? fromParam.trim() : "alguien que te quiere mucho";
+    : (fallbackName.length > 0 ? fallbackName : "Cumpleañero");
+var fromName = fromParam && fromParam.trim().length > 0 ? fromParam.trim() : "alguien que valora mucho tu presencia";
 
 document.getElementById("name").textContent = personName;
-document.getElementById("dedicatoria").textContent = "Con cariño, " + fromName + ".";
+document.getElementById("dedicatoria").textContent = "Con aprecio, " + fromName + ".";
 
-if (themeParam === "azul" || themeParam === "sol") {
+if (themeParam === "azul" || themeParam === "sol" || themeParam === "noche") {
     document.documentElement.setAttribute("data-theme", themeParam);
 }
 
 var frases = [
     "Feliz cumpleaños, " + personName + "",
-    "Que hoy te regale momentos inolvidables",
-    "Risas, abrazos y mucha buena vibra",
-    "Que este año te sorprenda bonito"
+    "Que hoy te recargues de energía y buenos momentos",
+    "Que este año te traiga salud, éxito y grandes logros",
+    "Brinda por lo que ya conseguiste y por lo que viene"
 ];
 
 $(".main").fadeOut(1);
